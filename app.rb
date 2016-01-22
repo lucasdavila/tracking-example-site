@@ -6,6 +6,18 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :index, layout: :layout
+  end
+
+  get '/about' do
+    erb :about
+  end
+
+  get '/pricing' do
+    erb :pricing
+  end
+
+  get '/contact' do
+    erb :contact
   end
 end
