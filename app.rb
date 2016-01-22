@@ -7,7 +7,7 @@ class App < Sinatra::Base
   end
 
   configure :production do
-    set :tracking_base_url, 'http://tracking.herokuapp.com'
+    set :tracking_base_url, 'http://tracking2.herokuapp.com'
   end
 
   get '/' do
