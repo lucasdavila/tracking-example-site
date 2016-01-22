@@ -1,9 +1,45 @@
 Contact page
 
-<form action="http://localhost:3000/contacts" method="post">
+<form>
   <input type="text" placeholder="Your email" name="email">
   <br>
   <textarea placeholder="Your message" name="message"></textarea>
   <br>
-  <input type="submit">
+  <button>Send</button>
 </form>
+
+<script>
+
+  $(function() {
+    $('form button').on('click', sendMessage);
+  });
+
+  function sendMessage(e) {
+    e.preventDefault();
+
+    var data = {
+      email: $('[name=email]').val(),
+      message: $('[name=message]').val()
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '<%= settings.tracking_base_url %>/api/contacts',
+      data: data,
+      xhrFields: {
+        withCredentials: true
+      },
+      success: callback,
+      error: errorCallback
+    });
+  }
+
+  function callback() {
+    alert('Message sent!');
+  }
+
+  function errorCallback() {
+    alert('Message not sent!');
+  }
+
+</script>
