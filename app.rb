@@ -11,7 +11,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    erb :index, layout: :layout
+    erb :index
   end
 
   get '/about' do
