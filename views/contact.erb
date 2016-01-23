@@ -1,16 +1,23 @@
-Contact page
+<h2 class="ui header">
+  Contact
+</h2>
 
-<form>
-  <input type="text" placeholder="Your email" name="email">
-  <br>
-  <textarea placeholder="Your message" name="message"></textarea>
-  <br>
-  <button>Send</button>
+<form class="ui form">
+  <div class="field">
+    <input type="text" placeholder="Your email" name="email">
+  </div>
+
+  <div class="field">
+    <textarea placeholder="Your message" name="message"></textarea>
+  </div>
+
+  <button class="ui fluid button">Send</button>
 </form>
 
 <script>
 
   $(function() {
+    $('.ui.main.menu .contact.item').addClass('active');
     $('form button').on('click', sendMessage);
   });
 
@@ -35,11 +42,19 @@ Contact page
   }
 
   function callback() {
-    alert('Message sent!');
+    uiButton().removeClass('red')
+              .addClass('green')
+              .text('Message sent.');
   }
 
   function errorCallback() {
-    alert('Message not sent!');
+    uiButton().removeClass('green')
+              .addClass('red')
+              .text('Message not sent. Please try again.');
+  }
+
+  function uiButton() {
+    return $('.ui.button');
   }
 
 </script>
